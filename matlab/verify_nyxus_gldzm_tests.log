@@ -1,0 +1,37 @@
+Nyxus GLDZM verifier
+Repo root: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4
+Phantom source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4/tests/test_data.h
+Test constants source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4/tests/test_ibsi_gldzm.h
+Slices in phantom: 4
+Configuration: 2D IBSI-style GLDZM over the shared digital phantom slices
+
+GLDZM
+Feature                          Expected             MATLAB      AbsDiff     Pass
+--------------------------------------------------------------------------------------
+GLDZM_SDE                           0.946     0.919642857143    0.0263571     PASS
+GLDZM_LDE                            1.21      1.32142857143     0.111429     PASS
+GLDZM_LGLZE                         0.371     0.378389550265   0.00738955     PASS
+GLDZM_HGLZE                          16.4      16.0476190476     0.352381     PASS
+GLDZM_SDLGLE               0.347883597884     0.347883597884            0     PASS
+GLDZM_SDHGLE                         15.2      14.8154761905     0.384524     PASS
+GLDZM_LDLGLE                        0.386     0.500413359788     0.114413     PASS
+GLDZM_LDHGLE                         21.3      20.9761904762      0.32381     PASS
+GLDZM_GLNU                           1.41      1.64285714286     0.232857     PASS
+GLDZM_GLNUN                         0.323     0.329931972789   0.00693197     PASS
+GLDZM_ZDNU                           3.79      3.85714285714    0.0671429     PASS
+GLDZM_ZDNUN                         0.898     0.836734693878    0.0612653     PASS
+GLDZM_ZP                             0.24     0.265389576883    0.0253896     PASS
+GLDZM_GLM                   3.47619047619      3.47619047619            0     PASS
+GLDZM_GLV                            3.97      3.88662131519    0.0833787     PASS
+GLDZM_ZDM                   1.10714285714      1.10714285714            0     PASS
+GLDZM_ZDV                 0.0816326530612    0.0816326530612            0     PASS
+GLDZM_ZDE                            1.73      1.81205558631    0.0820556     PASS
+
+Summary
+GLDZM: 18/18 features pass Nyxus's C++ test tolerances.
+
+Notes:
+1. This verifier targets the active 2D GLDZM constants in tests/test_ibsi_gldzm.h.
+2. The MATLAB code independently reconstructs same-intensity zones and 4-connected border distances over the masked ROI matrices.
+3. This is a reimplementation of the matrix and feature formulas over the same phantom, not a call back into Nyxus.
+

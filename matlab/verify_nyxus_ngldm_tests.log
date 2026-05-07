@@ -1,0 +1,40 @@
+Nyxus checkout not found. Cloning https://github.com/vjaganat90/nyxus.git (branch unittest_add4) into /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4
+
+Nyxus NGLDM verifier
+Repo root: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4
+Phantom source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4/tests/test_data.h
+Test constants source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4/tests/test_ibsi_ngldm.h
+Slices in phantom: 4
+Configuration: 2D NGLDM regression surface over the IBSI phantom slices using Nyxus's current implementation semantics
+
+NGLDM
+Feature                          Expected             MATLAB      AbsDiff     Pass
+--------------------------------------------------------------------------------------
+NGLDM_LDE                  0.177261668556     0.177261668556            0     PASS
+NGLDM_HDE                   19.0416666667      19.0416666667            0     PASS
+NGLDM_LGLCE                0.715856481481     0.715856481481            0     PASS
+NGLDM_HGLCE                 5.04166666667      5.04166666667            0     PASS
+NGLDM_LDLGLE              0.0832223167045    0.0832223167045            0     PASS
+NGLDM_LDHGLE               0.782941645408     0.782941645408            0     PASS
+NGLDM_HDLGLE                 26.025462963       26.025462963            0     PASS
+NGLDM_HDHGLE                58.7916666667      58.7916666667            0     PASS
+NGLDM_GLNU                  3.70833333333      3.70833333333            0     PASS
+NGLDM_GLNUN                0.618055555556     0.618055555556            0     PASS
+NGLDM_DCNU                  3.70833333333      3.70833333333            0     PASS
+NGLDM_DCNUN                0.618055555556     0.618055555556            0     PASS
+NGLDM_DCP                               1                  1            0     PASS
+NGLDM_GLM                   1.54166666667      1.54166666667            0     PASS
+NGLDM_GLV                   1.69097222222      1.69097222222            0     PASS
+NGLDM_DCM                   4.58333333333      4.58333333333            0     PASS
+NGLDM_DCV                    1.6087962963       1.6087962963            0     PASS
+NGLDM_DCENT                 1.73038854221      1.73038854221            0     PASS
+NGLDM_DCENE                0.243055555556     0.243055555556            0     PASS
+
+Summary
+NGLDM: 19/19 features pass Nyxus's C++ test tolerances.
+
+Notes:
+1. This verifier targets the active 2D NGLDM regression constants in tests/test_ibsi_ngldm.h.
+2. The MATLAB code intentionally mirrors Nyxus's current behavior, including counting zero-valued background pixels inside the ROI AABB when constructing the dependence matrix.
+3. This is a reimplementation of the matrix and feature formulas over the same phantom, not a call back into Nyxus.
+

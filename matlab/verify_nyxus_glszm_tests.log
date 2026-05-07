@@ -1,0 +1,35 @@
+Nyxus GLSZM verifier
+Repo root: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4
+Phantom source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4/tests/test_data.h
+Test constants source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add4/tests/test_glszm.h
+Slices in phantom: 4
+Configuration: 2D non-IBSI GLSZM with 64-level MATLAB-style binning over the shared digital phantom slices
+
+GLSZM
+Feature                          Expected             MATLAB      AbsDiff     Pass
+--------------------------------------------------------------------------------------
+GLSZM_SAE                         0.38873     0.388738174957  8.17496e-06     PASS
+GLSZM_LAE                            32.5               32.5            0     PASS
+GLSZM_LGLZE                      0.196255     0.196255084008  8.40075e-08     PASS
+GLSZM_HGLZE                   1497.574999           1497.575        1e-06     PASS
+GLSZM_SALGLE                     0.109386     0.109560922983  0.000174923     PASS
+GLSZM_SAHGLE                   881.470652      881.470652503  5.03189e-07     PASS
+GLSZM_LALGLE                     0.769358     0.769358474874  4.74874e-07     PASS
+GLSZM_LAHGLE                    11048.975          11048.975            0     PASS
+GLSZM_GLN                     1.487499999             1.4875        1e-09     PASS
+GLSZM_GLNN                      0.2771875          0.2771875  5.55112e-17     PASS
+GLSZM_SZN                      1.96249999             1.9625        1e-08     PASS
+GLSZM_SZNN                  0.35968749999          0.3596875        1e-11     PASS
+GLSZM_ZP                            0.275              0.275            0     PASS
+GLSZM_GLV                       551.70375          551.70375            0     PASS
+GLSZM_ZV                          16.6875            16.6875            0     PASS
+GLSZM_ZE                       2.28429019      2.28596404744   0.00167386     PASS
+
+Summary
+GLSZM: 16/16 features pass Nyxus's C++ test tolerances.
+
+Notes:
+1. This verifier targets the active 2D GLSZM constants in tests/test_glszm.h.
+2. The MATLAB code independently rebuilds 8-connected same-intensity zones after Nyxus-style 64-level MATLAB binning.
+3. This is a reimplementation of the matrix and feature formulas over the same phantom, not a call back into Nyxus.
+

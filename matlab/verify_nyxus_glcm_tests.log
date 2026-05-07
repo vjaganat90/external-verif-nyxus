@@ -1,0 +1,80 @@
+Refreshing cached Nyxus checkout at /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add3 to origin/unittest_add3
+
+Nyxus GLCM verifier
+Repo root: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add3
+Phantom source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add3/tests/test_data.h
+GLCM test constants source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_unittest_add3/tests/test_glcm.h
+Slices in phantom: 4
+GLCM configuration: MATLAB-style binning with 100 levels, offset 1, asymmetric matrix, angles {0,45,90,135}
+
+GLCM
+Feature                          Expected             MATLAB      AbsDiff     Pass
+--------------------------------------------------------------------------------------
+GLCM_ACOR                    1340.1234375       1340.1234375            0     PASS
+GLCM_ASM                   0.287673611111     0.287673611111            0     PASS
+GLCM_CLUPROM                6401030.04585      6401030.04585            0     PASS
+GLCM_CLUSHADE               20646.0840087      20646.0840087            0     PASS
+GLCM_CLUTEND                1563.90420573      1563.90420573            0     PASS
+GLCM_CONTRAST               1444.81302083      1444.81302083            0     PASS
+GLCM_CORRELATION            0.01009552443      0.01009552443            0     PASS
+GLCM_DIFAVE                 24.3302083333      24.3302083333            0     PASS
+GLCM_DIFENTRO               1.75274970193      1.75274970191  2.31803e-11     PASS
+GLCM_DIFVAR                 771.579565972      771.579565972            0     PASS
+GLCM_DIS                    24.3302083333      24.3302083333            0     PASS
+GLCM_ENERGY                0.287673611111     0.287673611111            0     PASS
+GLCM_ENTROPY               -20.9435645803       -20.94356458  2.76984e-10     PASS
+GLCM_HOM1                  0.510274802785     0.510274802785            0     PASS
+GLCM_HOM2                   6.94497889226      6.94497889226            0     PASS
+GLCM_ID                    0.510274802785     0.510274802785            0     PASS
+GLCM_IDN                   0.844321003081     0.844321003081            0     PASS
+GLCM_IDM                   0.497175137255     0.497175137255            0     PASS
+GLCM_IDMN                  0.900291520055     0.900291520055            0     PASS
+GLCM_INFOMEAS1            -0.239130676391    -0.239130676391  1.11022e-16     PASS
+GLCM_INFOMEAS2             0.599721973353     0.599721973351  2.64366e-12     PASS
+GLCM_IV                 0.000562167088936  0.000562167088936            0     PASS
+GLCM_JAVE                     33.01484375        33.01484375            0     PASS
+GLCM_JE                     2.26391119806      2.26391119803  2.99409e-11     PASS
+GLCM_JMAX                  0.447135416667     0.447135416667            0     PASS
+GLCM_JVAR                   818.560734592      818.560734592            0     PASS
+GLCM_SUMAVERAGE                  68.28125           68.28125            0     PASS
+GLCM_SUMENTROPY             1.95548387051      1.95548387049  2.58622e-11     PASS
+GLCM_SUMVARIANCE            1563.90420573      1563.90420573            0     PASS
+GLCM_VARIANCE               685.797878689      685.797878689            0     PASS
+GLCM_ASM_AVE               0.287673611111     0.287673611111            0     PASS
+GLCM_ACOR_AVE                1340.1234375       1340.1234375            0     PASS
+GLCM_CLUPROM_AVE            6401030.04585      6401030.04585            0     PASS
+GLCM_CLUSHADE_AVE           20646.0840087      20646.0840087            0     PASS
+GLCM_CLUTEND_AVE            1563.90420573      1563.90420573            0     PASS
+GLCM_CONTRAST_AVE           1444.81302083      1444.81302083            0     PASS
+GLCM_CORRELATION_AVE        0.01009552443      0.01009552443            0     PASS
+GLCM_DIFAVE_AVE             24.3302083333      24.3302083333            0     PASS
+GLCM_DIFENTRO_AVE           1.75274970193      1.75274970191  2.31803e-11     PASS
+GLCM_DIFVAR_AVE             771.579565972      771.579565972            0     PASS
+GLCM_DIS_AVE                24.3302083333      24.3302083333            0     PASS
+GLCM_ENERGY_AVE            0.287673611111     0.287673611111            0     PASS
+GLCM_ENTROPY_AVE           -20.9435645803       -20.94356458  2.76984e-10     PASS
+GLCM_HOM1_AVE              0.510274802785     0.510274802785            0     PASS
+GLCM_ID_AVE                0.510274802785     0.510274802785            0     PASS
+GLCM_IDN_AVE               0.844321003081     0.844321003081            0     PASS
+GLCM_IDM_AVE               0.497175137255     0.497175137255            0     PASS
+GLCM_IDMN_AVE              0.900291520055     0.900291520055            0     PASS
+GLCM_IV_AVE             0.000562167088936  0.000562167088936            0     PASS
+GLCM_JAVE_AVE                 33.01484375        33.01484375            0     PASS
+GLCM_JE_AVE                 2.26391119806      2.26391119803  2.99409e-11     PASS
+GLCM_INFOMEAS1_AVE        -0.239130676391    -0.239130676391  1.11022e-16     PASS
+GLCM_INFOMEAS2_AVE         0.599721973353     0.599721973351  2.64366e-12     PASS
+GLCM_VARIANCE_AVE           685.797878689      685.797878689            0     PASS
+GLCM_JMAX_AVE              0.447135416667     0.447135416667            0     PASS
+GLCM_JVAR_AVE               818.560734592      818.560734592            0     PASS
+GLCM_SUMAVERAGE_AVE              68.28125           68.28125            0     PASS
+GLCM_SUMENTROPY_AVE         1.95548387051      1.95548387049  2.58622e-11     PASS
+GLCM_SUMVARIANCE_AVE        1563.90420573      1563.90420573            0     PASS
+
+Summary
+GLCM: 59/59 features pass Nyxus's C++ test tolerances.
+
+Notes:
+1. GLCM _AVE features are cross-checked the same way Nyxus tests them: they use the same ground-truth values as the base metrics and average over angles per slice.
+2. The MATLAB code intentionally reproduces Nyxus's current non-IBSI semantics, including asymmetric GLCMs, 100-level MATLAB-style binning, raw-count entropy, and the current JVAR/HOM2 conventions.
+3. This is an independent reimplementation of the matrix construction and feature formulas over the same phantom, not a call back into Nyxus.
+

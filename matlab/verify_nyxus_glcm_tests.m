@@ -51,21 +51,24 @@ scriptDir = fileparts(mfilename('fullpath'));
 projectRoot = fileparts(scriptDir);
 cacheRoot = fullfile(projectRoot, ".cache");
 repoRoot = fullfile(cacheRoot, "nyxus_vjaganat90_main");
+gitUrl = 'https://github.com/vjaganat90/nyxus.git';
+gitBranch = 'main';
 
 if ~exist(cacheRoot, 'dir')
     mkdir(cacheRoot);
 end
 
-repoRoot = ensure_nyxus_clone(repoRoot);
+repoRoot = ensure_nyxus_clone(repoRoot, gitUrl, gitBranch);
 end
 
-function repoRoot = ensure_nyxus_clone(repoRoot)
+function repoRoot = ensure_nyxus_clone(repoRoot, gitUrl, gitBranch)
 requiredFiles = {
     fullfile(repoRoot, "tests", "test_data.h")
     fullfile(repoRoot, "tests", "test_glcm.h")
     };
 
 if all(cellfun(@(p) exist(p, 'file') ~= 0, requiredFiles))
+    refresh_existing_clone(repoRoot, gitBranch);
     return;
 end
 
@@ -74,13 +77,21 @@ if exist(repoRoot, 'dir')
         'Delete the directory or pass a valid repoRoot explicitly.'], repoRoot);
 end
 
-gitUrl = 'https://github.com/vjaganat90/nyxus.git';
-gitBranch = 'main';
 fprintf('Nyxus checkout not found. Cloning %s (branch %s) into %s\n', gitUrl, gitBranch, repoRoot);
 cmd = sprintf('git clone --depth 1 --branch %s --single-branch %s "%s"', gitBranch, gitUrl, repoRoot);
 [status, cmdout] = system(cmd);
 if status ~= 0
     error('Failed to clone Nyxus.\nCommand: %s\nOutput:\n%s', cmd, cmdout);
+end
+end
+
+function refresh_existing_clone(repoRoot, gitBranch)
+fprintf('Refreshing cached Nyxus checkout at %s to origin/%s\n', repoRoot, gitBranch);
+cmd = sprintf('git -C \"%s\" fetch origin %s --depth 1 && git -C \"%s\" checkout %s && git -C \"%s\" reset --hard origin/%s', ...
+    repoRoot, gitBranch, repoRoot, gitBranch, repoRoot, gitBranch);
+[status, cmdout] = system(cmd);
+if status ~= 0
+    error('Failed to refresh Nyxus clone.\nOutput:\n%s', cmdout);
 end
 end
 
@@ -475,14 +486,14 @@ end
 vals.GLCM_CORRELATION = tmp1 / (sqrt(s2r) * sqrt(s2c));
 
 meanVal = 0.0;
-for r = 1:nLevels
-    meanVal = meanVal + sum(P(r, :)) * I(r);
+for c = 1:nLevels
+    meanVal = meanVal + sum(P(:, c)) * I(c);
 end
 meanVal = meanVal / sumP;
 vals.GLCM_VARIANCE = 0.0;
-for r = 1:nLevels
-    d = I(r) - meanVal;
-    vals.GLCM_VARIANCE = vals.GLCM_VARIANCE + d * d * sum(P(r, :));
+for c = 1:nLevels
+    d = I(c) - meanVal;
+    vals.GLCM_VARIANCE = vals.GLCM_VARIANCE + d * d * sum(P(:, c));
 end
 vals.GLCM_VARIANCE = vals.GLCM_VARIANCE / sumP;
 
@@ -555,7 +566,14 @@ for k = 2:nLevels
     end
 end
 
-vals.GLCM_JAVE = sum(sum(P .* I')) / sumP;
+% Nyxus stores asymmetric GLCM counts with the current pixel as the second
+% logical index in this MATLAB matrix representation, so JAVE and VARIANCE
+% follow the column marginal while JVAR follows the row marginal.
+vals.GLCM_JAVE = 0.0;
+for c = 1:nLevels
+    vals.GLCM_JAVE = vals.GLCM_JAVE + sum(P(:, c)) * I(c);
+end
+vals.GLCM_JAVE = vals.GLCM_JAVE / sumP;
 vals.GLCM_JE = -sum(sum((P / sumP) .* log2(P / sumP + EPS)));
 vals.GLCM_JMAX = max(P(:) / sumP);
 vals.GLCM_JVAR = 0.0;

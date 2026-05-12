@@ -1,0 +1,76 @@
+Refreshing cached Nyxus checkout at /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology to origin/touch_morphology
+
+Nyxus 2D shape/morphology verifier
+Repo root: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology
+Fixture source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology/tests/test_data.h
+Test constants source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology/tests/test_shape_morphology_2d.h
+Configuration: synthetic irregular 2D ROI, PIXELSIZEUM=2, XYRES=1, current Nyxus 2D shape/morphology semantics
+
+2D Shape/Morphology
+Feature                                    Expected             MATLAB      AbsDiff     Pass
+----------------------------------------------------------------------------------------------
+AREA_PIXELS_COUNT                                26                 26            0     PASS
+AREA_UM2                                        104                104            0     PASS
+CENTROID_X                            2.61538461538      2.61538461538  4.44089e-15     PASS
+CENTROID_Y                            2.84615384615      2.84615384615  3.55271e-15     PASS
+WEIGHTED_CENTROID_X                   3.84160305344      3.84160305344  4.44089e-15     PASS
+WEIGHTED_CENTROID_Y                   4.43893129771      4.43893129771  3.55271e-15     PASS
+MASS_DISPLACEMENT                     2.01011235208      2.01011235208  2.22045e-15     PASS
+COMPACTNESS                         0.0653563937293    0.0653563937293  4.02456e-16     PASS
+BBOX_XMIN                                         0                  0            0     PASS
+BBOX_YMIN                                         0                  0            0     PASS
+BBOX_WIDTH                                        6                  6            0     PASS
+BBOX_HEIGHT                                       7                  7            0     PASS
+DIAMETER_EQUAL_AREA                   33.1042281631      33.1042281631  2.84217e-14     PASS
+EXTENT                               0.619047619048     0.619047619048  1.11022e-16     PASS
+ASPECT_RATIO                         0.857142857143     0.857142857143  1.11022e-16     PASS
+MAJOR_AXIS_LENGTH                     6.96881616899      6.96881616899  2.66454e-15     PASS
+MINOR_AXIS_LENGTH                     5.48870991296      5.48870991296            0     PASS
+ELONGATION                           0.787610087547     0.787610087547  1.11022e-16     PASS
+ECCENTRICITY                         0.616173960821     0.616173960821  2.22045e-16     PASS
+ORIENTATION                           70.4173944984      70.4173944984  1.42109e-14     PASS
+ROUNDNESS                            0.681656295209     0.681656295209  3.33067e-16     PASS
+PERIMETER                             26.9349412836      26.9349412836  4.26326e-14     PASS
+DIAMETER_EQUAL_PERIMETER              8.57365809436      8.57365809436  3.55271e-15     PASS
+EDGE_MEAN_INTENSITY                   41.8333333333      41.8333333333  3.55271e-14     PASS
+EDGE_STDDEV_INTENSITY                 16.7691944456      16.7691944456  3.90799e-14     PASS
+EDGE_MAX_INTENSITY                               68                 68            0     PASS
+EDGE_MIN_INTENSITY                               12                 12            0     PASS
+EDGE_INTEGRATED_INTENSITY                       753                753            0     PASS
+CIRCULARITY                          0.671081973229     0.671081973229  3.33067e-16     PASS
+CONVEX_HULL_AREA                                 24                 24            0     PASS
+SOLIDITY                              1.08333333333      1.08333333333  3.33067e-15     PASS
+EULER_NUMBER                                     -2                 -2            0     PASS
+FRACT_DIM_BOXCOUNT                  -0.830074998558    -0.830074998558  4.44089e-16     PASS
+FRACT_DIM_PERIMETER                  -1.97227924244     -1.97227924244            0     PASS
+DIAMETER_MIN_ENCLOSING_CIRCLE          6.3247551918      6.32455532034  0.000199871     PASS
+DIAMETER_CIRCUMSCRIBING_CIRCLE        12.3317073399      12.3317073399  3.37508e-14     PASS
+DIAMETER_INSCRIBING_CIRCLE           0.828486893405     0.828486893405  1.11022e-16     PASS
+ROI_RADIUS_MEAN                       1.07692307692      1.07692307692  3.10862e-15     PASS
+ROI_RADIUS_MAX                                    4                  4            0     PASS
+ROI_RADIUS_MEDIAN                                 1                  1            0     PASS
+EXTREMA_P1_X                                      2                  2            0     PASS
+EXTREMA_P1_Y                                      0                  0            0     PASS
+EXTREMA_P2_X                                      3                  3            0     PASS
+EXTREMA_P2_Y                                      0                  0            0     PASS
+EXTREMA_P3_X                                      5                  5            0     PASS
+EXTREMA_P3_Y                                      2                  2            0     PASS
+EXTREMA_P4_X                                      5                  5            0     PASS
+EXTREMA_P4_Y                                      3                  3            0     PASS
+EXTREMA_P5_X                                      4                  4            0     PASS
+EXTREMA_P5_Y                                      6                  6            0     PASS
+EXTREMA_P6_X                                      3                  3            0     PASS
+EXTREMA_P6_Y                                      6                  6            0     PASS
+EXTREMA_P7_X                                      0                  0            0     PASS
+EXTREMA_P7_Y                                      3                  3            0     PASS
+EXTREMA_P8_X                                      0                  0            0     PASS
+EXTREMA_P8_Y                                      2                  2            0     PASS
+
+Summary
+2D shape/morphology: 56/56 features pass Nyxus's C++ test tolerances.
+
+Notes:
+1. This verifier mirrors Nyxus's current implementation semantics, including the current diameter-equal-area, compactness, ROI-radius, Euler, and convex-hull conventions.
+2. Contour-driven features use an independent MATLAB implementation of Nyxus's padded ordered-contour convention, then recompute the feature formulas over that contour.
+3. This is an independent MATLAB implementation over the same shared fixture, not a call back into Nyxus.
+

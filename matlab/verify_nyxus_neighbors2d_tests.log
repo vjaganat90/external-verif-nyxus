@@ -1,0 +1,65 @@
+Nyxus checkout not found. Cloning https://github.com/vjaganat90/nyxus.git (branch touch_morphology) into /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology
+
+Nyxus 2D neighborhood/touching verifier
+Repo root: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology
+Fixture source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology/tests/test_data.h
+Test constants source: /Users/jaganathv2/Code/Codex/external-verif-nyxus/.cache/nyxus_vjaganat90_touch_morphology/tests/test_neighbors_2d.h
+Configuration: synthetic 5-ROI 2D scene, PIXELDISTANCE=1, current Nyxus 2D neighborhood/touching semantics
+
+2D Neighborhood/Touching
+ROI        Feature                              Expected             MATLAB      AbsDiff     Pass
+------------------------------------------------------------------------------------------------------
+L1         NUM_NEIGHBORS                               4                  4            0     PASS
+L1         PERCENT_TOUCHING                         87.5               87.5            0     PASS
+L1         CLOSEST_NEIGHBOR1_DIST                    2.5                2.5            0     PASS
+L1         CLOSEST_NEIGHBOR1_ANG                       0                  0            0     PASS
+L1         CLOSEST_NEIGHBOR2_DIST           2.5495097568       2.5495097568  2.22045e-15     PASS
+L1         CLOSEST_NEIGHBOR2_ANG           191.309932474      191.309932474  1.98952e-13     PASS
+L1         ANG_BW_NEIGHBORS_MEAN           132.172516881      132.172516881  5.68434e-14     PASS
+L1         ANG_BW_NEIGHBORS_STDDEV          115.23001801       115.23001801  8.52651e-14     PASS
+L1         ANG_BW_NEIGHBORS_MODE                       0                  0            0     PASS
+L2         NUM_NEIGHBORS                               1                  1            0     PASS
+L2         PERCENT_TOUCHING                33.3333333333      33.3333333333  3.55271e-14     PASS
+L2         CLOSEST_NEIGHBOR1_DIST           2.5495097568       2.5495097568  2.22045e-15     PASS
+L2         CLOSEST_NEIGHBOR1_ANG            11.309932474       11.309932474  1.24345e-14     PASS
+L2         CLOSEST_NEIGHBOR2_DIST                      0                  0            0     PASS
+L2         CLOSEST_NEIGHBOR2_ANG                       0                  0            0     PASS
+L2         ANG_BW_NEIGHBORS_MEAN            11.309932474       11.309932474  1.24345e-14     PASS
+L2         ANG_BW_NEIGHBORS_STDDEV                     0                  0            0     PASS
+L2         ANG_BW_NEIGHBORS_MODE                      11                 11            0     PASS
+L3         NUM_NEIGHBORS                               1                  1            0     PASS
+L3         PERCENT_TOUCHING                66.6666666667      66.6666666667  2.84217e-14     PASS
+L3         CLOSEST_NEIGHBOR1_DIST           2.5495097568       2.5495097568  2.22045e-15     PASS
+L3         CLOSEST_NEIGHBOR1_ANG            78.690067526       78.690067526  1.42109e-14     PASS
+L3         CLOSEST_NEIGHBOR2_DIST                      0                  0            0     PASS
+L3         CLOSEST_NEIGHBOR2_ANG                       0                  0            0     PASS
+L3         ANG_BW_NEIGHBORS_MEAN            78.690067526       78.690067526  1.42109e-14     PASS
+L3         ANG_BW_NEIGHBORS_STDDEV                     0                  0            0     PASS
+L3         ANG_BW_NEIGHBORS_MODE                      79                 79            0     PASS
+L4         NUM_NEIGHBORS                               1                  1            0     PASS
+L4         PERCENT_TOUCHING                           50                 50            0     PASS
+L4         CLOSEST_NEIGHBOR1_DIST                    2.5                2.5            0     PASS
+L4         CLOSEST_NEIGHBOR1_ANG                     180                180            0     PASS
+L4         CLOSEST_NEIGHBOR2_DIST                      0                  0            0     PASS
+L4         CLOSEST_NEIGHBOR2_ANG                       0                  0            0     PASS
+L4         ANG_BW_NEIGHBORS_MEAN                     180                180            0     PASS
+L4         ANG_BW_NEIGHBORS_STDDEV                     0                  0            0     PASS
+L4         ANG_BW_NEIGHBORS_MODE                     180                180            0     PASS
+L5         NUM_NEIGHBORS                               1                  1            0     PASS
+L5         PERCENT_TOUCHING                33.3333333333      33.3333333333  3.55271e-14     PASS
+L5         CLOSEST_NEIGHBOR1_DIST           2.5495097568       2.5495097568  2.22045e-15     PASS
+L5         CLOSEST_NEIGHBOR1_ANG           258.690067526      258.690067526  2.27374e-13     PASS
+L5         CLOSEST_NEIGHBOR2_DIST                      0                  0            0     PASS
+L5         CLOSEST_NEIGHBOR2_ANG                       0                  0            0     PASS
+L5         ANG_BW_NEIGHBORS_MEAN           258.690067526      258.690067526  2.27374e-13     PASS
+L5         ANG_BW_NEIGHBORS_STDDEV                     0                  0            0     PASS
+L5         ANG_BW_NEIGHBORS_MODE                     259                259            0     PASS
+
+Summary
+2D neighborhood/touching: 45/45 values pass Nyxus's C++ test tolerances.
+
+Notes:
+1. This verifier mirrors the current branch semantics of the neighborhood reducer, including radius-aware broad-phase pairing, Euclidean centroid distances, and direction angles in [0, 360).
+2. Touching percentages are measured as the percentage of contour pixels within the configured neighborhood radius of another ROI.
+3. This is an independent MATLAB implementation over the same shared scene fixture, not a call back into Nyxus.
+

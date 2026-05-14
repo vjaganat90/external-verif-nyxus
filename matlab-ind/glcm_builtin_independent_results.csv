@@ -1,0 +1,60 @@
+Family,Feature,Expected,MatlabBuiltinValue,AbsDiff,RelDiffPct,TolerancePct,Status,BuiltinUsed,Note
+GLCM,GLCM_CONTRAST,1444.81302083333,1444.81302083333,0,0,5,PASS,Nyxus binning + graycomatrix + graycoprops Contrast,MATLAB-defined GLCM contrast after Nyxus test discretization
+GLCM,GLCM_CORRELATION,0.0100955244300025,0.0100955244300025,0,0,5,PASS,Nyxus binning + graycomatrix + graycoprops Correlation,MATLAB-defined GLCM correlation after Nyxus test discretization
+GLCM,GLCM_ASM,0.287673611111111,0.287673611111111,0,0,5,PASS,Nyxus binning + graycoprops Energy,MATLAB Energy is angular second moment after Nyxus test discretization
+GLCM,GLCM_ENERGY,0.287673611111111,0.287673611111111,0,0,5,PASS,Nyxus binning + graycoprops Energy,Nyxus names this output ENERGY/ASM in 2D tests
+GLCM,GLCM_HOM1,0.51027480278492,0.51027480278492,0,0,5,PASS,Nyxus binning + graycoprops Homogeneity,MATLAB homogeneity after Nyxus test discretization
+GLCM,GLCM_CONTRAST_AVE,1444.81302083333,1444.81302083333,0,0,5,PASS,Nyxus binning + graycomatrix + graycoprops Contrast,MATLAB-defined averaged GLCM contrast after Nyxus test discretization
+GLCM,GLCM_CORRELATION_AVE,0.0100955244300025,0.0100955244300025,0,0,5,PASS,Nyxus binning + graycomatrix + graycoprops Correlation,MATLAB-defined averaged GLCM correlation after Nyxus test discretization
+GLCM,GLCM_ASM_AVE,0.287673611111111,0.287673611111111,0,0,5,PASS,Nyxus binning + graycoprops Energy,MATLAB averaged Energy is angular second moment after Nyxus test discretization
+GLCM,GLCM_ENERGY_AVE,0.287673611111111,0.287673611111111,0,0,5,PASS,Nyxus binning + graycoprops Energy,Nyxus names this averaged output ENERGY/ASM in 2D tests
+GLCM,GLCM_HOM1_AVE,0.51027480278492,0.51027480278492,0,0,5,PASS,Nyxus binning + graycoprops Homogeneity,MATLAB averaged homogeneity after Nyxus test discretization
+GLCM,GLCM_ACOR,1340.1234375,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_CLUPROM,6401030.04584858,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_CLUSHADE,20646.0840086806,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_CLUTEND,1563.90420572917,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_DIFAVE,24.3302083333333,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_DIFENTRO,1.75274970193236,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_DIFVAR,771.579565972222,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_DIS,24.3302083333333,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_ENTROPY,-20.9435645802886,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_HOM2,6.94497889226485,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_ID,0.51027480278492,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_IDN,0.844321003081244,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_IDM,0.497175137255311,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_IDMN,0.900291520055316,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_INFOMEAS1,-0.239130676391214,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_INFOMEAS2,0.599721973353357,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_IV,0.000562167088935826,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_JAVE,33.01484375,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_JE,2.26391119806226,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_JMAX,0.447135416666667,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_JVAR,818.560734592014,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_SUMAVERAGE,68.28125,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_SUMENTROPY,1.95548387051379,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_SUMVARIANCE,1563.90420572917,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_VARIANCE,685.797878689236,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops
+GLCM,GLCM_ACOR_AVE,1340.1234375,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_CLUPROM_AVE,6401030.04584858,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_CLUSHADE_AVE,20646.0840086806,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_CLUTEND_AVE,1563.90420572917,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_DIFAVE_AVE,24.3302083333333,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_DIFENTRO_AVE,1.75274970193236,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_DIFVAR_AVE,771.579565972222,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_DIS_AVE,24.3302083333333,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_ENTROPY_AVE,-20.9435645802886,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_ID_AVE,0.51027480278492,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_IDN_AVE,0.844321003081244,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_IDM_AVE,0.497175137255311,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_IDMN_AVE,0.900291520055316,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_INFOMEAS1_AVE,-0.239130676391214,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_INFOMEAS2_AVE,0.599721973353357,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_IV_AVE,0.000562167088935826,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_JAVE_AVE,33.01484375,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_JE_AVE,2.26391119806226,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_JMAX_AVE,0.447135416666667,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_JVAR_AVE,818.560734592014,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_SUMAVERAGE_AVE,68.28125,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_SUMENTROPY_AVE,1.95548387051379,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_SUMVARIANCE_AVE,1563.90420572917,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature
+GLCM,GLCM_VARIANCE_AVE,685.797878689236,NaN,NaN,NaN,5,NO_BUILTIN,,Not exposed by graycoprops for the averaged Nyxus GLCM feature

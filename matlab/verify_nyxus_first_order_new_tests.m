@@ -10,8 +10,8 @@ function verify_nyxus_first_order_new_tests(repoRoot)
 % 2. Reads the asserted constants from tests/test_pixel_intensity_features.h
 % 3. Recomputes the same features in MATLAB
 % 4. Reports whether each value would pass Nyxus's agrees_gt() tolerance
-% 5. Shows where raw MATLAB defaults differ from Nyxus-specific logic
-% 6. Clones vjaganat90/nyxus branch unittest_add locally on demand when
+% 5. Shows where histogram-based entropy/uniformity remain Nyxus-specific
+% 6. Clones vjaganat90/nyxus branch main locally on demand when
 %    repoRoot is not provided
 
 if nargin < 1 || strlength(string(repoRoot)) == 0
@@ -110,7 +110,7 @@ fprintf('%-14s %18.12g %18.12g\n', 'UNIFORMITY', actualGrey20.UNIFORMITY, actual
 
 fprintf('\nNotes:\n');
 fprintf('1. This verifies the direct first-order intensity assertions present in the selected Nyxus checkout over the shared inline phantom.\n');
-fprintf('2. Percentiles, IQR, QCOD, robust mean, and robust MAD follow Nyxus''s histogram-based implementation, not raw sample percentiles.\n');
+fprintf('2. Percentiles, IQR, and QCOD now follow MATLAB-compatible raw sample percentile interpolation.\n');
 fprintf('3. ENTROPY and UNIFORMITY use GREYDEPTH=20 in the C++ tests, while most other histogram-dependent features use Nyxus''s default path.\n');
 fprintf('4. This is a MATLAB cross-check of the current Nyxus formulas and asserted constants; it is not an external IBSI oracle.\n');
 fprintf('5. Different Nyxus checkouts may expose different intensity assertions, so missing features are reported separately from mismatches.\n\n');
@@ -121,7 +121,7 @@ function repoRoot = resolve_default_nyxus_repo()
 scriptDir = fileparts(mfilename('fullpath'));
 projectRoot = fileparts(scriptDir);
 cacheRoot = fullfile(projectRoot, ".cache");
-repoRoot = fullfile(cacheRoot, "nyxus_vjaganat90_unittest_add");
+repoRoot = fullfile(cacheRoot, "nyxus_vjaganat90_main");
 
 if ~exist(cacheRoot, 'dir')
     mkdir(cacheRoot);
@@ -144,7 +144,7 @@ if exist(repoRoot, 'dir')
 end
 
 gitUrl = 'https://github.com/vjaganat90/nyxus.git';
-gitBranch = 'unittest_add';
+gitBranch = 'main';
 fprintf('Nyxus checkout not found. Cloning %s (branch %s) into %s\n', gitUrl, gitBranch, repoRoot);
 cmd = sprintf('git clone --depth 1 --branch %s --single-branch %s "%s"', gitBranch, gitUrl, repoRoot);
 [status, cmdout] = system(cmd);
@@ -327,48 +327,14 @@ if roiRange == 0
     return;
 end
 
-binW100 = roiRange / 100.0;
-bins100 = zeros(101, 1);
-for i = 1:numel(x)
-    realIdx = (x(i) - minVal) / binW100;
-    idx = floor(realIdx);
-    if isnan(realIdx)
-        idx = 0;
-    end
-    bins100(idx + 1) = bins100(idx + 1) + 1;
-end
-bins100(100) = bins100(100) + bins100(101);
-bins100(101) = 0;
-
-targets = struct( ...
-    'P01', numel(x) * 0.01, ...
-    'P10', numel(x) * 0.10, ...
-    'P25', numel(x) * 0.25, ...
-    'P75', numel(x) * 0.75, ...
-    'P90', numel(x) * 0.90, ...
-    'P99', numel(x) * 0.99);
-
-percentileNames = fieldnames(targets);
-percentileValues = struct('P01', 0.0, 'P10', 0.0, 'P25', 0.0, 'P75', 0.0, 'P90', 0.0, 'P99', 0.0);
-
-runSum = 0;
-for i = 0:99
-    binCount = bins100(i + 1);
-    if binCount == 0
-        runSum = runSum + binCount;
-        continue;
-    end
-
-    for j = 1:numel(percentileNames)
-        name = percentileNames{j};
-        target = targets.(name);
-        if runSum <= target && target <= runSum + binCount
-            percentileValues.(name) = (target - runSum) * binW100 / binCount + minVal + binW100 * i;
-        end
-    end
-
-    runSum = runSum + binCount;
-end
+rawPct = prctile(x, [1 10 25 75 90 99]);
+percentileValues = struct( ...
+    'P01', rawPct(1), ...
+    'P10', rawPct(2), ...
+    'P25', rawPct(3), ...
+    'P75', rawPct(4), ...
+    'P90', rawPct(5), ...
+    'P99', rawPct(6));
 
 bandMask = x >= percentileValues.P10 & x <= percentileValues.P90;
 bandValues = x(bandMask);

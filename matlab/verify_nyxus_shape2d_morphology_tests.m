@@ -32,7 +32,7 @@ fprintf('Configuration: synthetic irregular 2D ROI, PIXELSIZEUM=2, XYRES=1, curr
 fprintf('\nSummary\n');
 fprintf('2D shape/morphology: %d/%d features pass Nyxus''s C++ test tolerances.\n', passCount, checkedCount);
 fprintf('\nNotes:\n');
-fprintf('1. This verifier mirrors Nyxus''s current implementation semantics, including the current diameter-equal-area, compactness, ROI-radius, Euler, and convex-hull conventions.\n');
+fprintf('1. This verifier mirrors Nyxus''s current implementation semantics, including the current diameter-equal-area, compactness, ROI-radius, and Euler conventions. The convex-hull polygon area uses the corrected shoelace closing edge (v[n]->v[1]).\n');
 fprintf('2. Contour-driven features use an independent MATLAB implementation of Nyxus''s padded ordered-contour convention, then recompute the feature formulas over that contour.\n');
 fprintf('3. This is an independent MATLAB implementation over the same shared fixture, not a call back into Nyxus.\n\n');
 
@@ -358,8 +358,9 @@ for i = 1:(n - 1)
     p2 = vertices(i + 1, :);
     area = area + p1(1) * p2(2) - p1(2) * p2(1);
 end
-p1 = vertices(1, :);
-p2 = vertices(n, :);
+% Closing edge: v[n] -> v[1] (shoelace formula closes the polygon here)
+p1 = vertices(n, :);
+p2 = vertices(1, :);
 area = area + p1(1) * p2(2) - p1(2) * p2(1);
 area = abs(area) / 2.0;
 end
@@ -394,7 +395,7 @@ if uxy == 0.0
         orientation = 90.0;
     end
 else
-    orientation = 180.0 / pi * atan(num / den);
+    orientation = -180.0 / pi * atan(num / den);
 end
 end
 
@@ -431,40 +432,7 @@ for i = 1:numel(x)
     I(y(i) - minY + 1, x(i) - minX + 1) = 1;
 end
 
-Px = uint8([ ...
-    8, 4, 2, 1, ...
-    7, 11, 13, 14, ...
-    9, 6]);
-
-C1 = 0;
-C3 = 0;
-Cd = 0;
-for row = 2:height
-    for col = 2:width
-        Imq = uint8(0);
-        if I(row - 1, col - 1) > 0, Imq = bitor(Imq, uint8(8)); end
-        if I(row - 1, col) > 0, Imq = bitor(Imq, uint8(4)); end
-        if I(row, col - 1) > 0, Imq = bitor(Imq, uint8(2)); end
-        if I(row, col) > 0, Imq = bitor(Imq, uint8(1)); end
-
-        idx = find(Px == Imq, 1);
-        if isempty(idx)
-            continue;
-        end
-        if idx <= 4
-            C1 = C1 + 1;
-        elseif idx <= 8
-            C3 = C3 + 1;
-        elseif idx == 9 && idx == 10
-            % Mirrors current Nyxus behavior: diagonal Cd patterns are not
-            % counted. A separate diagonal-pattern regression should cover
-            % any future Euler connectivity bug fix.
-            Cd = Cd + 1;
-        end
-    end
-end
-
-eulerNumber = (C1 - C3 - (2 * Cd)) / 4;
+eulerNumber = bweuler(logical(I), 8);
 end
 
 function fd = fract_dim_boxcount(x, y, inten, minX, maxX, minY, maxY)

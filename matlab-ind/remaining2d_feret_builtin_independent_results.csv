@@ -1,0 +1,5 @@
+Family,Feature,Expected,MatlabBuiltinValue,AbsDiff,RelDiffPct,TolerancePct,Status,BuiltinUsed,Note
+Remaining 2D Feret,MIN_FERET_ANGLE,40,-45,85,212.5,5,MISMATCH,bwferet MinAngle,Direct MATLAB Feret angle; angle convention differs from current Nyxus test
+Remaining 2D Feret,MAX_FERET_ANGLE,0,-113.198590513648,113.198590513648,Inf,5,MISMATCH,bwferet MaxAngle,Direct MATLAB Feret angle; angle convention differs from current Nyxus test
+Remaining 2D Feret,STAT_FERET_DIAM_MIN,4,5.65685424949238,1.65685424949238,41.4213562373095,5,MISMATCH,bwferet MinDiameter,Closest direct MATLAB Feret diameter primitive
+Remaining 2D Feret,STAT_FERET_DIAM_MAX,5,7.61577310586391,2.61577310586391,52.3154621172782,5,MISMATCH,bwferet MaxDiameter,Closest direct MATLAB Feret diameter primitive

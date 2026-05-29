@@ -1,0 +1,5 @@
+Oracle,Family,Feature,Reason
+MIRP,GLDZM,GLDZM_GLM,MIRP 2.6.0 does not expose this Nyxus row as a direct feature column.
+MIRP,GLDZM,GLDZM_ZDM,MIRP 2.6.0 does not expose this Nyxus row as a direct feature column.
+MIRP,NGLDM,NGLDM_GLM,MIRP 2.6.0 does not expose this Nyxus row as a direct feature column.
+MIRP,NGLDM,NGLDM_DCM,MIRP 2.6.0 does not expose this Nyxus row as a direct feature column.

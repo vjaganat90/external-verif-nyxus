@@ -1,0 +1,2 @@
+Library,Version,FeatureRows,DetailRows,PASS,MISMATCH,Note
+cp-measure,0.1.19,13,29,7,6,Feature-level PASS requires all detail rows for that feature to pass.

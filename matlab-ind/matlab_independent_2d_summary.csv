@@ -1,5 +1,5 @@
-Family,CheckedRows,PassRows,MismatchRows,NoBuiltinRows,Notes
-First-order intensity,36,28,0,8,MATLAB built-in oracle comparison
-Shape and morphology subset,58,18,2,36,MATLAB built-in oracle comparison
-GLCM MATLAB-exposed subset,59,10,0,49,MATLAB built-in oracle comparison
-Families without MATLAB built-in oracle,10,0,0,10,See unsupported_builtin_families.csv
+Family,ComparedRows,PassRows,MismatchRows,Notes
+First-order intensity,29,29,0,MATLAB built-in oracle comparison
+Shape and morphology subset,36,24,12,MATLAB built-in oracle comparison
+GLCM MATLAB-exposed subset,10,10,0,MATLAB built-in oracle comparison
+Remaining 2D Feret subset,4,0,4,MATLAB built-in oracle comparison

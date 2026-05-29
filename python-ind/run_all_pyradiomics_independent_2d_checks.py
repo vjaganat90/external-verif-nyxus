@@ -28,7 +28,8 @@ from radiomics import firstorder, glcm, gldm, glrlm, glszm, ngtdm
 radiomics.setVerbosity(logging.ERROR)
 
 
-DEFAULT_REPO_ROOT = Path("/Users/jaganathv2/Code/Codex/nyxus")
+from nyxus_repo import ensure_nyxus_repo
+
 OUT_DIR = Path(__file__).resolve().parent
 TOLERANCE_PCT = 5.0
 
@@ -618,7 +619,7 @@ def write_results(rows: list[Row], out_dir: Path) -> tuple[Path, Path]:
     summary_path = out_dir / "pyradiomics_independent_2d_summary.csv"
 
     with results_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(
             [
                 "Family",
@@ -660,7 +661,7 @@ def write_results(rows: list[Row], out_dir: Path) -> tuple[Path, Path]:
         summary[row.family][row.status] += 1
 
     with summary_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["Family", "Rows", "PASS", "MISMATCH"])
         for family in sorted(summary):
             item = summary[family]
@@ -690,7 +691,7 @@ def print_rows(rows: list[Row]) -> None:
 
 
 def main(argv: list[str]) -> int:
-    repo_root = Path(argv[1]).resolve() if len(argv) > 1 else DEFAULT_REPO_ROOT
+    repo_root = ensure_nyxus_repo(argv[1] if len(argv) > 1 else None)
     rows = run(repo_root)
     print_rows(rows)
     results_path, summary_path = write_results(rows, OUT_DIR)

@@ -1,0 +1,2 @@
+Library,Version,Rows,PASS,MISMATCH,Note
+imea,0.3.5,37,1,36,Only direct columns from shape_measurements_2d are counted; optional raw chord/statistical-length arrays are not used.

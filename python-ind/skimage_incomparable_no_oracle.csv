@@ -1,0 +1,4 @@
+Oracle,Family,Feature,Reason
+scikit-image,Added 2D shape morphology extras,EROSIONS_2_VANISH,No direct feature-level built-in oracle is exposed by scikit-image for this Nyxus row.
+scikit-image,Added 2D shape morphology extras,GEODETIC_LENGTH,No direct feature-level built-in oracle is exposed by scikit-image for this Nyxus row.
+scikit-image,Added 2D shape morphology extras,THICKNESS,No direct feature-level built-in oracle is exposed by scikit-image for this Nyxus row.

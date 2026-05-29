@@ -1,0 +1,2 @@
+Library,Version,Rows,PASS,MISMATCH,Note
+DIPlib,3.6.0,2,0,2,Conda-forge package unavailable for this osx-arm64 env; pip wheel requires KMP_DUPLICATE_LIB_OK=TRUE here.

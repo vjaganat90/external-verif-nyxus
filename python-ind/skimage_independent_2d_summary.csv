@@ -1,0 +1,4 @@
+Library,Version,Family,ComparedRows,PASS,PASS_gt_1pct,MISMATCH
+scikit-image,0.26.0,Shape and morphology subset,4,0,0,4
+scikit-image,0.26.0,Added 2D shape geometric moments,43,21,0,22
+scikit-image,0.26.0,Added 2D intensity geometric moments,43,24,3,19
